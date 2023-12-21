@@ -19,7 +19,10 @@ document.getElementById("pthumb").src = data.thumbnail;
         let url = "https://dummyjson.com/products/<?=$pid ?>";
         fetch(url)
 .then(res => res.json())
-.then(d=>show(d));
+.then(d=>{
+    console.log(d);
+    show(d)
+});
     </script>
 </body>
 </html>
