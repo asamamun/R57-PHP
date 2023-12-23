@@ -1,3 +1,4 @@
+<h1>Left to right and right to left</h1>
 <?php
 $x = 5+6+7; // 11 + 7
 $y = 5+6*7; // 11 * 7
