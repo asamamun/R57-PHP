@@ -45,7 +45,7 @@
     $user[] = "English";
     return $user;
     }
-    list($name) = retrieveUserProfile();
+    list($name,$e,$l) = retrieveUserProfile();
     echo $name;
     ?>
     <hr>
