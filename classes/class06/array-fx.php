@@ -33,10 +33,10 @@ print_r(array_values($countryList));
 <h3>count</h3>
 <?php
 $color = [
-    "red", 
-    "green", 
-    "blue", 
-    "yellow", 
-    ["black",["redblue", "greenblue"],"yellow"]
+    "red",
+    "green",
+    "blue",
+    "yellow",
+    ["black", ["redblue", "greenblue"], "yellow"]
 ];
-echo count($color,1);
+echo count($color, 1);
