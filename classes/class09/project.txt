@@ -1,0 +1,5 @@
+---image project---
+user will specify a path. Program will find all the images within that path.
+
+---image compress project---
+user will specify a path. Program will find all the images and compress the images within that path.
