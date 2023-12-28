@@ -39,4 +39,5 @@
 
 
     //$db = new DB();//Cannot instantiate abstract class
+    var_dump(get_class_methods("User"));
 ?>

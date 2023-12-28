@@ -2,7 +2,14 @@
 constructor is defined as a block of code that automatically executes at the time of object 
 instantiation
 </h3>
-
+<pre>
+• Constructors can accept parameters, which can be assigned to 
+specific object properties at creation time.
+• Constructors can call class methods or other functions.
+• Class constructors can call on other constructors, including those 
+from the class parent.
+</pre>
+<hr>
 <?php
 class Database
 {
