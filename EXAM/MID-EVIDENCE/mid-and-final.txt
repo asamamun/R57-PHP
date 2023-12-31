@@ -1,0 +1,59 @@
+Take action all the questions
+
+ 1. Find out prime number.                                                                                                                              10
+
+2.Create an associative array of 5 elements where index will be country name and value will be corresponding capital name. Sort the array by country name and print.                                                10
+
+3. Find out largest number among three ?                                                                                                                         10
+
+
+*********************
+1 . Write a program in PHP which will validate a login registration system using form 12
+ User name must be between 4 to 8 digit
+ must be ‘@’ symbol
+2. Create a class named student where fields are id, name, batch and one method result which will take id as
+parameter and search the corresponding result from a file and print result. Must use constructor to initialize
+the data and print a result . 13
+3. Create a PHP script to upload a particular type of file to the server and limit the file size to 400 KB (File type
+can be PDF/IMAGE/Document file). 10
+4. Find out prime number 10
+5. Oral
+*********************
+
+
+
+
+
+Take action all the questions
+1. Find out whether a number is prime or not.
+
+2 . Write a program in PHP which will validate a login registration system using form
+ User name must be between 4 to 8 digit
+ must be ‘@’ symbol
+
+4. Create a PHP script to upload a particular type of file to the server and limit the file size to 400 KB (File type can
+be PDF/IMAGE/Document file).
+5.0ral
+
+
+
+
+
+
+
+
+
+
+Q1. Create two tables: 5
+Manufacturer (id (auto increment), name (varchar(50)), address (varchar(100)),
+contact_no (varchar(50)).
+Product (id (auto increment), name (varchar(50)), price (INT(5)), manufacturer_id
+(INT(10)).
+Q2. Create a form and write PHP script to insert data
+into Manufacturer table using store procedure. 12
+Q3. Create an after delete trigger which will delete record(s) from the product table when
+any corresponding manufacturer_id are deleted from the manufacturer table. 15
+
+Q3. Create a view to display all records from the product table where price is greater than
+5000. Write php script to display the data from the view. 13
+Q4. Oral
