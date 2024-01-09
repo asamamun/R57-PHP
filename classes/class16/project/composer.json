@@ -1,0 +1,21 @@
+{
+    "name": "wdpf/testproject",
+    "description": "testing composer based project",
+    "type": "project",
+    "license": "GNU GPL",
+    "autoload": {
+        "psr-4": {
+            "Wdpf\\Testproject\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "asamamun",
+            "email": "asamamun@gmail.com"
+        }
+    ],
+    "require": {
+        "nesbot/carbon": "^2.72",
+        "intervention/image": "^3.2"
+    }
+}

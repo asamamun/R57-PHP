@@ -1,0 +1,1 @@
+<h1>If you put @ before a function it will stop showing the error message that is called <strong>error suppression</strong></h1>
