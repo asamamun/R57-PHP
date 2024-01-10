@@ -1,0 +1,19 @@
+{
+    "name": "wdpf/hospital",
+    "description": "hospital project.",
+    "license": "wdpf",
+    "autoload": {
+        "psr-4": {
+            "Wdpf\\Hospital\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "israt ahamed sabbir"
+        }
+    ],
+    "require": {
+        "nesbot/carbon": "^2.72",
+        "intervention/image": "^2.7"
+    }
+}
