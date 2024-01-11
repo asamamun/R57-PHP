@@ -1,12 +1,12 @@
 <?php
-$allowed_files = ["image/jpeg", "image/png", "image/gif", "image/webp"];
+$allowed_files = ["image/jpeg", "image/png", "image/gif", "image/webp","application/pdf"];
 if(isset($_POST['upload'])){
 $file = $_FILES['myfile'];
 echo "<pre>";
 var_dump($file);
 echo "</pre>";
 if(in_array($file['type'], $allowed_files)){
-move_uploaded_file($file['tmp_name'],"myfiles/".time()."_".$file['name']);
+move_uploaded_file($file['tmp_name'],"myfiles/".time()."_".rand(1,100000)."_".$file['name']);
 }
 else{
     echo "only image files are allowed";
