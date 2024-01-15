@@ -1,0 +1,1 @@
+go to php.ini file->;extension=gd remove ;

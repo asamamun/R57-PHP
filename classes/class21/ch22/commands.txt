@@ -1,0 +1,35 @@
+mysql -u root -p
+enter password:
+
+MariaDB [(none)]>use r57_php;
+Database changed
+MariaDB [r57_php]>show tables;
+MariaDB [r57_php]>show databases;
+MariaDB [r57_php]>show variables;
+MariaDB [r57_php]>show status;
+MariaDB [r57_php]>describe users;
+MariaDB [r57_php]> describe users;
++-----------+--------------+------+-----+---------------------+----------------+
+| Field     | Type         | Null | Key | Default             | Extra          |
++-----------+--------------+------+-----+---------------------+----------------+
+| id        | int(11)      | NO   | PRI | NULL                | auto_increment |
+| username  | varchar(20)  | NO   | UNI | NULL                |                |
+| password  | varchar(256) | NO   |     | NULL                |                |
+| create_at | timestamp    | NO   |     | current_timestamp() |                |
++-----------+--------------+------+-----+---------------------+----------------+
+4 rows in set (0.010 sec)
+MariaDB [r57_php]> select * from users;
+MariaDB [r57_php]> create database mytestdatabase;
+
+mysql> SOURCE E:/sakila-db/sakila-schema.sql;
+mysql> SOURCE E:/sakila-db/sakila-data.sql;
+
+******verticall output format******
+mysql>select * from film\G;
+mysql>select * from film limit 10\G;
+mysql>select * from film limit 0,10\G;
+mysql>select * from film limit 10,10\G;
+mysql>select * from film where length<=60\G;
+mysql>select * from film where rating="PG-13"\G;
+
+

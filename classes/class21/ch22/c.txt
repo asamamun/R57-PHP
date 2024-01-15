@@ -1,0 +1,114 @@
+
+Setting environment for using XAMPP for Windows.
+WDPF@DESKTOP-UIFA5QV d:\xampp8240
+# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 92
+Server version: 10.4.28-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use r57_php;
+Database changed
+MariaDB [r57_php]> show tables;
++-------------------+
+| Tables_in_r57_php |
++-------------------+
+| users             |
++-------------------+
+1 row in set (0.000 sec)
+
+MariaDB [r57_php]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| hospital_ms        |
+| information_schema |
+| jpp                |
+| lara10             |
+| mysql              |
+| performance_schema |
+| php_pos            |
+| phpmyadmin         |
+| polyecomm          |
+| r57_php            |
+| test               |
+| web1ecomm          |
+| web2ecomm          |
++--------------------+
+13 rows in set (0.001 sec)
+
+MariaDB [r57_php]> use jpp;
+Database changed
+MariaDB [jpp]> show tables;
++------------------------+
+| Tables_in_jpp          |
++------------------------+
+| categories             |
+| education              |
+| failed_jobs            |
+| freelancerprofiles     |
+| freelancerskills       |
+| job_user               |
+| jobs                   |
+| migrations             |
+| password_reset_tokens  |
+| personal_access_tokens |
+| providerprofiles       |
+| skills                 |
+| subcategories          |
+| users                  |
+| works                  |
++------------------------+
+15 rows in set (0.001 sec)
+
+MariaDB [jpp]> use r57_php;
+Database changed
+MariaDB [r57_php]> describe users;
++-----------+--------------+------+-----+---------------------+----------------+
+| Field     | Type         | Null | Key | Default             | Extra          |
++-----------+--------------+------+-----+---------------------+----------------+
+| id        | int(11)      | NO   | PRI | NULL                | auto_increment |
+| username  | varchar(20)  | NO   | UNI | NULL                |                |
+| password  | varchar(256) | NO   |     | NULL                |                |
+| create_at | timestamp    | NO   |     | current_timestamp() |                |
++-----------+--------------+------+-----+---------------------+----------------+
+4 rows in set (0.010 sec)
+
+MariaDB [r57_php]> select * from users;
++----+----------+--------------------------------------------------------------+---------------------+
+| id | username | password                                                     | create_at           |
++----+----------+--------------------------------------------------------------+---------------------+
+|  1 | admin    | $2y$10$8On05kOUVCaf0NkVeJO3TupWUauaFen55aoeM2ktTbyDfRQyGKCrW | 2024-01-11 10:01:58 |
+|  2 | mamun    | $2y$10$SD3dpJFtQuhIYXW79D59b.AS7I0gXjp1kiBWxW9pXdgPKZqnQGQWe | 2024-01-11 10:02:33 |
++----+----------+--------------------------------------------------------------+---------------------+
+2 rows in set (0.000 sec)
+
+MariaDB [r57_php]> create database mytestdatabase;
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [r57_php]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| hospital_ms        |
+| information_schema |
+| jpp                |
+| lara10             |
+| mysql              |
+| mytestdatabase     |
+| performance_schema |
+| php_pos            |
+| phpmyadmin         |
+| polyecomm          |
+| r57_php            |
+| test               |
+| web1ecomm          |
+| web2ecomm          |
++--------------------+
+14 rows in set (0.001 sec)
+
+MariaDB [r57_php]>
