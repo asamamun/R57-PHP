@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Securing MySQL</title>
+</head>
+<body>
+    <pre>
+        MySQL’s privilege system is based on two general concepts:
+        • Authentication: Is the user even allowed to connect to the server?
+        • Authorization: Does the authenticated user possess adequate 
+        privileges to execute the desired query?
+        Because authorization cannot take place without successful authentication, you can 
+        think of this process as taking place in two stages.</pre>
+        <h3>Where Is Access Information Stored?</h3>
+        <p>MYSQL database</p>
+        <h3>Create User</h3>
+        <p>
+            <code>
+                create user 'jason'@'localhost' identified by 'secret';
+            </code>
+        </p>
+        <h3>Delete/Drop User</h3>
+        <p>
+            <code>
+                drop user 'jason'@'localhost';
+            </code>
+        </p>
+        <h3>Rename User</h3>
+        <p>
+            <code>
+                rename user 'jason'@'localhost' to 'jasongilmore'@'localhost';
+            </code>
+        </p>
+        <h3>The Grant and Revoke Commands</h3>
+        <h4>grant</h4>
+        <p>
+            <code>
+GRANT privilege_type [(column_list)] [, privilege_type [(column_list)] ...]
+ ON {table_name | * | *.* | database_name.*}
+ TO user_name [IDENTIFIED BY 'password']
+ [, user_name [IDENTIFIED BY 'password'] ...]
+ [REQUIRE {SSL|X509} [ISSUER issuer] [SUBJECT subject]]
+ [WITH GRANT OPTION]
+
+ grant select, insert on r57_php.* to 'idb' identified by '12345';
+ grant ALL PRIVILEGES on r57_php.* to 'idb' identified by '12345';
+ grant ALL PRIVILEGES on *.* to 'idb' identified by '12345';
+ grant select ON r57_php.users TO 'mamun'@'localhost';//table level previlege
+ grant update (title) on sakila.film TO 'will'@'192.168.1.105';//column level previlege
+            </code>
+        </p>
+        <hr>
+        <h4>revoke</h4>
+        <p>
+            <code>
+                revoke insert on sakila.* FROM 'will'@'192.168.1.102';
+                revoke select ON r57_php.users FROM 'mamun'@'localhost';
+            </code>
+        </p>
+<h3>Delete User</h3>
+<p>
+    <code>DROP USER username@localhost</code>
+</p>
+<!-- 
+            
+Setting environment for using XAMPP for Windows.
+WDPF@DESKTOP-UIFA5QV d:\xampp8240
+# mysql -u pma -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 382
+Server version: 10.4.28-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| phpmyadmin         |
+| test               |
++--------------------+
+3 rows in set (0.001 sec)
+
+MariaDB [(none)]> use phpmyadmin;
+Database changed
+MariaDB [phpmyadmin]> show tables;
++------------------------+
+| Tables_in_phpmyadmin   |
++------------------------+
+| pma__bookmark          |
+| pma__central_columns   |
+| pma__column_info       |
+| pma__designer_settings |
+| pma__export_templates  |
+| pma__favorite          |
+| pma__history           |
+| pma__navigationhiding  |
+| pma__pdf_pages         |
+| pma__recent            |
+| pma__relation          |
+| pma__savedsearches     |
+| pma__table_coords      |
+| pma__table_info        |
+| pma__table_uiprefs     |
+| pma__tracking          |
+| pma__userconfig        |
+| pma__usergroups        |
+| pma__users             |
++------------------------+
+19 rows in set (0.001 sec)
+
+MariaDB [phpmyadmin]> exit;
+Bye
+
+WDPF@DESKTOP-UIFA5QV d:\xampp8240
+# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 399
+Server version: 10.4.28-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> grant ALL PRIVILEGES on r57_php.* to 'idb' identified by '12345';
+Query OK, 0 rows affected (0.002 sec)
+
+MariaDB [(none)]> exit;
+Bye
+
+WDPF@DESKTOP-UIFA5QV d:\xampp8240
+# mysql -u idb -p
+Enter password: *****
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 400
+Server version: 10.4.28-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| r57_php            |
+| test               |
++--------------------+
+3 rows in set (0.001 sec)
+
+MariaDB [(none)]> user r57_php;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'user r57_php' at line 1
+MariaDB [(none)]> use r57_php;
+Database changed
+MariaDB [r57_php]> show tables;
++-------------------+
+| Tables_in_r57_php |
++-------------------+
+| asd               |
+| dummyusers        |
+| products          |
+| users             |
++-------------------+
+4 rows in set (0.000 sec)
+
+MariaDB [r57_php]> exit;
+Bye
+
+WDPF@DESKTOP-UIFA5QV d:\xampp8240
+# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 401
+Server version: 10.4.28-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> create user 'mamun'@'localhost' identified by '12345';
+Query OK, 0 rows affected (0.002 sec)
+
+MariaDB [(none)]> grant select ON r57_php.users TO 'mamun'@'localhost';
+ERROR 1194 (HY000): Table 'tables_priv' is marked as crashed and should be repaired
+MariaDB [(none)]> grant select ON r57_php.users TO 'mamun';
+ERROR 1194 (HY000): Table 'tables_priv' is marked as crashed and should be repaired
+MariaDB [(none)]> grant select ON r57_php.users TO 'mamun';
+ERROR 1194 (HY000): Table 'tables_priv' is marked as crashed and should be repaired
+MariaDB [(none)]> exit;
+Bye
+
+WDPF@DESKTOP-UIFA5QV d:\xampp8240
+# mysql -u mamun -p
+Enter password:
+ERROR 1045 (28000): Access denied for user 'mamun'@'localhost' (using password: NO)
+
+WDPF@DESKTOP-UIFA5QV d:\xampp8240
+# mysql -u mamun -p
+Enter password: *****
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 403
+Server version: 10.4.28-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| r57_php            |
+| test               |
++--------------------+
+3 rows in set (0.001 sec)
+
+MariaDB [(none)]> use r57_php;
+Database changed
+MariaDB [r57_php]> show tables;
++-------------------+
+| Tables_in_r57_php |
++-------------------+
+| users             |
++-------------------+
+1 row in set (0.001 sec)
+
+MariaDB [r57_php]> select * from users;
++----+----------+--------------------------------------------------------------+---------------------+
+| id | username | password                                                     | create_at           |
++----+----------+--------------------------------------------------------------+---------------------+
+|  1 | admin    | $2y$10$8On05kOUVCaf0NkVeJO3TupWUauaFen55aoeM2ktTbyDfRQyGKCrW | 2024-01-11 10:01:58 |
+|  2 | mamun    | $2y$10$SD3dpJFtQuhIYXW79D59b.AS7I0gXjp1kiBWxW9pXdgPKZqnQGQWe | 2024-01-11 10:02:33 |
+|  3 | sathi    | 77777                                                        | 2024-01-20 10:06:52 |
+|  6 | sathi2   | 77777                                                        | 2024-01-20 10:08:05 |
++----+----------+--------------------------------------------------------------+---------------------+
+4 rows in set (0.000 sec)
+
+MariaDB [r57_php]> selete from users where id=6;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'selete from users where id=6' at line 1
+MariaDB [r57_php]> delete from users where id=6;
+ERROR 1142 (42000): DELETE command denied to user 'mamun'@'localhost' for table `r57_php`.`users`
+MariaDB [r57_php]>
+MariaDB [r57_php]> show grants for current_user();
++--------------------------------------------------------------------------------------------------------------+
+| Grants for mamun@localhost                                                                                   |
++--------------------------------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO `mamun`@`localhost` IDENTIFIED BY PASSWORD '*00A51F3F48415C7D4E8908980D443C29C69B60C9' |
+| GRANT SELECT ON `r57_php`.`users` TO `mamun`@`localhost`                                                     |
++--------------------------------------------------------------------------------------------------------------+
+2 rows in set (0.000 sec)
+         -->
+</body>
+</html>

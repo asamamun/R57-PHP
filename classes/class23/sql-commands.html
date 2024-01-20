@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>delete table</h3>
+    <p>
+        <code>
+            DROP TABLE IF EXISTS TABLENAME
+        </code>
+    </p>
+    <H3>Alter Table command to change table structure:</H3>
+    <p>
+        <pre>
+        <code>
+            ALTER TABLE employees ADD COLUMN birthdate DATE;
+            alter table asd add column country varchar(30);
+            ALTER TABLE employees CHANGE birthdate birthdate DATE NOT NULL;
+            ALTER TABLE asd CHANGE asdf address varchar(60) NOT NULL;
+            ALTER TABLE tablename DROP columnname;
+            alter table asd drop country;
+            ALTER TABLE `asd` ADD `country` VARCHAR(30) NOT NULL AFTER `phone`;
+        </code>
+    </pre>
+        
+    </p>
+    <h3>
+        Command to CRUD(ক্রাড) table data: Create,Read, Update, Delete
+    </h3>
+    <pre>
+        Create: Insert into tablename values(null,'A','B',current_timestamp())
+        insert into users value(null,'IDB','12345',current_timestamp)
+        insert into users values(null,'sathi','77777',CURRENT_TIMESTAMP); 
+        Read: Select * from users;
+        Update: update tablename set password= password(`password`) where id=4
+        update users set `password`= password(`password`) where id=4
+        update users set username='idb' //ALERT: disaster code
+        update users set username='idb' where id=4; //SAFE CODE
+        update users set username='idbbisew' where id=4;
+        Delete: delete from users where id=4;//don't user delete without where
+    </pre>
+    
+</body>
+</html>
