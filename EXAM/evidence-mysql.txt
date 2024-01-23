@@ -1,0 +1,15 @@
+Q1. Create two tables: 5 marks
+manufacturer (id (auto increment), name (varchar(50)), address (varchar(100)),
+contact_no (varchar(50)).
+product (id (auto increment), name (varchar(50)), price (INT(5)), manufacturer_id
+(INT(10)).
+
+Q2. Create a form and write PHP script to insert data
+into Manufacturer table using store procedure. 12 marks
+Q3. Create a form and make a after delete trigger which will delete record(s) from the
+product table when any corresponding manufacturer_id are deleted from the
+manufacturer table. 15 marks
+
+Q3. Create a view to display all records from the product table where price is greater than
+5000. Write php script to display the data from the view. 13 marks
+Q4. Oral

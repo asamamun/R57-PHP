@@ -1,0 +1,2 @@
+1. create table manufacturer and products
+2. show products table data with php.
