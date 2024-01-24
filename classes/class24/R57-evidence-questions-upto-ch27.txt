@@ -1,0 +1,14 @@
+                ________________________________________________________________
+                ~~~~ R57 EVIDENCE QUESTION UPTO CH27(Using PHP with MySQL) ~~~~
+                ________________________________________________________________
+1. Create a PHP script to upload a particular type of file to the server and limit the file size to 400 KB (File type can be PDF/IMAGE/Document file). 15 marks
+
+2.Create a login form and write PHP script to take the form value in post method and check useremail and password. If useremail is "admin@idb.com" and password is "secret", show "login ok" otherwise show "login failed".                         10 marks
+
+3. create table products.                                   10 marks
+product (id (primary key auto increment), name (varchar(50)), price (float(10,2)), quantity (int(5)) ).
+Insert 5 records into products table with phpmyadmin      
+
+5. Create mysql connection with php and  show products table data in html with php script.                                                      10 marks
+
+6. ORAL                                                     5 marks
