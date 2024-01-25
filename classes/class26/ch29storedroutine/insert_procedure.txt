@@ -1,0 +1,4 @@
+create procedure ap(in sku varchar(8), in n varchar(100), in p float(5,2))
+begin
+insert into products values(null,sku,n,p);
+end//
