@@ -1,0 +1,25 @@
+A trigger is a task that executes in response to some predefined database event, such as after 
+a new row is added to a particular table.
+
+CREATE
+ [DEFINER = { USER | CURRENT_USER }]
+ TRIGGER <trigger name>
+ { BEFORE | AFTER }
+ { INSERT | UPDATE | DELETE }
+ ON <table name>
+ FOR EACH ROW
+ [{ FOLLOWS | PRECEDES } <other_trigger_name>]
+ <triggered SQL statement>
+
+
+
+
+CREATE TRIGGER ad_post_delete_images
+AFTER delete ON posts
+FOR EACH ROW
+BEGIN
+delete from images where post_id= old.id;
+END;//
+
+
+HW: create manufacturers and products table. when manufacturer is deleted, all relevant products of that manufacturer should be automatically deleted using trigger.

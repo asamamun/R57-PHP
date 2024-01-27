@@ -1,0 +1,94 @@
+CREATE
+ [DEFINER = { user | CURRENT_USER }
+ FUNCTION function_name ([parameter[, ...]])
+ RETURNS type
+ [characteristics, ...] routine_body
+
+create function vat(pid int(11))
+returns float(5,2)
+begin
+declare pprice decimal(5,2);
+declare calcvat float(5,2); 
+SELECT price INTO pprice FROM products WHERE id=pid;
+set calcvat = pprice*0.05;
+RETURN calcvat;
+ end//
+
+ select vat(5);
+
+ select *, vat(id) as vat from products where 1;
+
+
+CREATE TABLE `sales` (
+  `id` int(5) primary key auto_increment NOT NULL,
+  `employee_id` int(8) NOT NULL,
+  `revenue` float(10,2) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+INSERT INTO `sales` (`id`, `employee_id`, `revenue`, `created_at`) VALUES
+(1, 101, 15000.00, '2024-01-27 03:48:52'),
+(2, 101, 25000.00, '2024-01-27 03:48:52'),
+(3, 101, 5000.00, '2024-01-27 03:49:07'),
+(4, 102, 10000.00, '2024-01-27 03:49:32'),
+(5, 102, 20000.00, '2024-01-27 03:49:32'),
+(6, 103, 80000.00, '2024-01-27 03:50:39');
+
+
+
+select sum(revenue) from sales where 5=5;
+ select sum(revenue) from sales where 1 group by employee_id;
+ select employee_id, sum(revenue) from sales where 1 group by employee_id;
+ select employee_id, sum(revenue) from sales where employee_id='102' group by employee_id;
+
+ CREATE FUNCTION calculate_bonus
+(emp_id CHAR(8)) RETURNS DECIMAL(10,2)
+COMMENT 'Calculate employee bonus'
+BEGIN
+ DECLARE total DECIMAL(10,2);
+ DECLARE bonus DECIMAL(10,2);
+ SELECT SUM(revenue) INTO total FROM sales WHERE employee_id = emp_id;
+ SET bonus = total * .05;
+ RETURN bonus;
+END;
+//
+DELIMITER ;
+
+
+ CREATE FUNCTION smart_calculate_bonus
+(emp_id CHAR(8)) RETURNS DECIMAL(10,2)
+COMMENT 'Calculate employee bonus'
+BEGIN
+ DECLARE total DECIMAL(10,2);
+ DECLARE bonus DECIMAL(10,2);
+ SELECT SUM(revenue) INTO total FROM sales WHERE employee_id = emp_id;
+ IF total >= 50000 THEN
+ SET bonus = total * .15;
+ELSEIF total >= 20000 THEN
+ SET bonus = total * .10;
+else  set bonus = total * 0.05;
+END IF;
+  RETURN bonus;
+END;
+//
+DELIMITER ;
+
+select calculate_bonus('101');
+
+select sum(bonus) , calculate_bonus('101') where employee_id = '101';
+
+select sum(`revenue`) , calculate_bonus(employee_id) from sales where employee_id = '101';
+
+select sum(`revenue`), calculate_bonus(employee_id) from sales where employee_id = '101';
+select employee_id, sum(`revenue`),smart_calculate_bonus(employee_id) from sales where 1 group by employee_id;
+select employee_id, sum(`revenue`) as total_sales,smart_calculate_bonus(employee_id) as bonus from sales where 1 group by employee_id;
+
+-------GROUP BY------ in film table
+select count(*) from film where 1
+select count(*) from film where 1 group by rating;
+select rating,count(*) from film where 1 group by rating;
+
+//https://www.w3schools.com/MySQL/default.asp
+
+SELECT * FROM `products` WHERE `details` like 'good%';
