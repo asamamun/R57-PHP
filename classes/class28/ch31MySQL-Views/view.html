@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>View</h3>
+    <p> a view consists of a set of rows that is returned if a particular query is executed. A view isn't a copy of the data represented by the query, but rather it simplifies the way in which that data can be retrieved by making the query available via an alias.</p>
+    <pre>
+        create or replace view productlt100 as select * from products where price < 100;
+    </pre>
+
+    <hr>
+    <pre>
+        select id, phone,blood_group  from students where blood_group=(select blood_group from students where id='345845')
+    </pre>
+
+    <pre>
+        SELECT * FROM `products` WHERE price > (select avg(`price`) from products where 1) ORDER BY `price` DESC
+    </pre>
+</body>
+</html>

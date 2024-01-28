@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Relationship types</h3>
+    <ul>
+        <li>1 to 1</li>
+        <li>1 to many</li>
+        <li>many to many</li>
+    </ul>
+    <hr>
+    <h3>what is foreign key</h3>
+    <p>Foreign key is a primary key of another table</p>
+
+    <pre>
+ALTER TABLE Orders
+ADD FOREIGN KEY (PersonID) REFERENCES Persons(PersonID);
+    </pre>
+    <hr>
+    <pre>
+alter table images add foreign key (post_id) REFERENCES posts(id);        
+alter table images add foreign key (post_id) REFERENCES posts(id) ON DELETE CASCADE;        
+alter table images add foreign key (post_id) REFERENCES posts(id) ON DELETE restrict;        
+    </pre>
+</body>
+</html>
