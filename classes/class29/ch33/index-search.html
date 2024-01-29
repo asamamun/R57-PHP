@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Indexing</h3>
+    <p>
+        An index is an ordered (or indexed) subset of table columns, with each row entry pointing to its corresponding table row.
+        <br>
+        advantages of Indexing:
+        <ul>
+            <li>Query optimization</li>
+            <li>Uniqueness</li>
+            <li>Text searching</li>
+        </ul>
+    </p>
+    <hr>
+    <p>
+        These advantages are realized, thanks to four types of indexes: 
+        <ul>
+            <li>primary</li>
+            <li>unique :Like a primary index, a unique index prevents duplicate values from being created.However, the difference is that only one primary index is allowed per table, whereas multiple unique indexes are supported.  <br>
+                ALTER TABLE `marks` ADD UNIQUE `student_quiz`(`stid`, `quizid`);</li>
+            <li>normal</li>
+            <li>full-text : SELECT * FROM film WHERE MATCH(description) AGAINST 
+                ('fight');</li>
+        </ul>        
+    </p>
+</body>
+</html>

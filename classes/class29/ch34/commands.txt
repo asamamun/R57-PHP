@@ -1,0 +1,55 @@
+
+Setting environment for using XAMPP for Windows.
+WDPF@DESKTOP-UIFA5QV d:\xampp8240
+# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 864
+Server version: 10.4.28-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use r57_php
+Database changed
+MariaDB [r57_php]> START TRANSACTION;
+Query OK, 0 rows affected (0.000 sec)
+
+MariaDB [r57_php]> UPDATE participants SET cash=cash-12.99 WHERE id=1;
+Query OK, 1 row affected (0.001 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [r57_php]> UPDATE participants SET cash=cash+12.99 WHERE id=2;
+Query OK, 1 row affected (0.000 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [r57_php]> UPDATE trunks SET owner=1 WHERE name="Abacus" AND owner=2;
+Query OK, 1 row affected (0.000 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [r57_php]> select * from participents;
+ERROR 1146 (42S02): Table 'r57_php.participents' doesn't exist
+MariaDB [r57_php]> select * from participants;
++----+-------+-------------------+--------+
+| id | name  | email             | cash   |
++----+-------+-------------------+--------+
+|  1 | Jason | jason@example.com |  87.01 |
+|  2 | Jon   | jon@example.com   | 162.99 |
++----+-------+-------------------+--------+
+2 rows in set (0.000 sec)
+
+MariaDB [r57_php]> select * from trunks;
++----+-------+---------------------+-------+----------------------------------------+
+| id | owner | name                | price | description                            |
++----+-------+---------------------+-------+----------------------------------------+
+|  1 |     1 | Abacus              | 12.99 | Low on computing power? Use an abacus! |
+|  2 |     2 | Magazines           |  6.00 | Stack of computer magazines.           |
+|  3 |     1 | Used Lottery ticket |  1.00 | Great gift for the eternal optimist.   |
++----+-------+---------------------+-------+----------------------------------------+
+3 rows in set (0.000 sec)
+
+MariaDB [r57_php]> commit;
+Query OK, 0 rows affected (0.001 sec)
+
+MariaDB [r57_php]>

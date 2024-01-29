@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>update products set price = price + 50 where 1</h3>
+    <pre>
+        DELIMITER //
+CREATE PROCEDURE calculate_result(in pqid int(2))
+BEGIN
+ DECLARE rowid INT;
+ DECLARE stuid int;
+ DECLARE qid int(2);
+ DECLARE mm float(4,2);
+ DECLARE me float(4,2);
+ DECLARE fm float(4,2);
+ DECLARE fe float(4,2);
+ DECLARE gtot float(4,2);
+ DECLARE res varchar(10);
+ DECLARE done INT;
+ DECLARE calc_result CURSOR FOR SELECT id, stid, quizid,midmcq,midevidence,finalmcq,finalevidence FROM marks where quizid = pqid ;
+ DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+ OPEN calc_result;
+ BEGIN_calc: LOOP
+ FETCH calc_result INTO rowid, stuid, qid,mm,me,fm,fe;
+ IF done THEN
+ LEAVE begin_calc;
+ END IF;
+set gtot = (mm+me)*0.2 + (fm+fe)*0.8;
+if gtot < 60 then 
+update marks set grandtotal = gtot , result = "Fail" where id=rowid;
+else
+update marks set grandtotal = gtot , result = "Pass" where id=rowid;
+end if;
+END LOOP begin_calc;
+ CLOSE calc_result;
+END//
+DELIMITER ;
+    </pre>
+</body>
+</html>
