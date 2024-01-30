@@ -1,0 +1,41 @@
+########## GROUP ##########
+sabbir, sabber, azad, maria, tushar, faisal, tawhid
+Pisla group: sathi, rafi, jui,
+~~~~~~~~HACKERS~~~~~~~~~~
+Project Name: Plot/Building Management System
+Project Members: Maria, Ishrat, Tawhid, Asif, Rafi
+~~~~~~~~TIGERS~~~~~~~~
+Project Name: Baby Quiz App / Quiz App
+Project Members: Nur, Sabbir, Azad, Jui
+~~~~~~~SHARKS~~~~~~
+Project Name: Online marketplace/Product Bidding App
+Project Members:  Bijoy, Tushar,Failsal, Sathi
+
+~~~~~~~~Sentinels~~~~~~~~~
+Project Name: amateur reporter news/fake news/fake news listing
+Project Members: 
+
+Quiz App
+Online marketplace:
+Custom listing(bikroy):
+Product Bidding App
+Metrorail Project: 
+-Complain
+-lost-found
+-Ticket
+Fake Doctors:
+Online casino/LUDU:
+Tour/Trip Adviser:
+Ride Sharing/Shouting:
+Baby Quiz App
+Job Board
+Social Media Dashboard
+Real-time Chat Application
+Task Manager
+Recipe Sharing App
+
+
+Book Exchange Platform/Online Public Library
+Music Streaming App
+
+HW: Requirment analysis.

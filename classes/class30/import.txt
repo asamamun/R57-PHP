@@ -1,0 +1,2 @@
+LOAD DATA INFILE 'E:/Sample-Superstore.csv' INTO TABLE r57_php.superstore FIELDS
+ TERMINATED BY ',' ENCLOSED BY '\"' ESCAPED BY '\\' LINES TERMINATED BY '\n';

@@ -1,0 +1,12 @@
+SELECT id,title,year(`publish_at`) as pubyear, month(`publish_at`) as pubmonth,publish_at  FROM `bdexplore_spots` WHERE 1
+
+select * from `bdexplore_spots` where month(`publish_at`)='9' and year(`publish_at`)='2017';
+
+select * from `bdexplore_spots` where publish_at >='2017-08-25 00:00:00' and publish_at <='2017-09-20 23:59:59';
+
+SELECT column_name(s)
+FROM table_name
+WHERE column_name BETWEEN value1 AND value2;
+
+select * from `bdexplore_spots` where publish_at between '2017-08-15 00:00:00' and '2017-09-20 23:59:59'
+
