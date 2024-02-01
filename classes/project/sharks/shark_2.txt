@@ -1,0 +1,74 @@
+
+-----------Group: SHARK-------------
+
+#project : mycash app
+
+Font end:
+-------------------
+1.  Registration
+1.2 : user login , agent login & log out.
+2. Campaigns
+3. Services
+	* Send Money
+	* Mobile Recharge
+	* Payment Payment
+	* Cash Out
+	* Add Money 
+	* Pay Bill 
+	* Savings 
+	* Loan Service
+	* bKash to Bank
+	* Request Money
+	* Remittance 
+	* Microfinance
+	* Education Fee
+	* Donation Icon
+	* Insurance
+4.Business
+5.Help
+ 	* Live Chat with Customer_Care
+ 	* Help Line 16247
+ 	* e-Appointment
+6.Career
+7.About
+	* Details
+	* FAQ
+8.Blog
+9. Settings.
+
+Agent panel:
+register/login
+1. mobile recharge
+2. cash in to user
+3. cash out to user:
+4. 
+
+Back_End:
+-------------------
+1. Admin panel (log in , log out, Registration) & Admin Dashboard.
+2. Developer mode.
+3. Notification
+4. Paymenet method.
+5. Feedback.
+6. transaction:
+id,agent_id,type(in/out),amount,date,prev_balance,current_balance
+
+users: id,email,phone,password,status,created_at
+usersprofile: id,ownername, address1, address2, bg,phone1,phone2, image1,image2, nid, fname,mname,
+agents:id,email,phone,password,status,created_at
+agentsprofile: id,ownername, address1, address2, bg,phone1,phone2, image1,image2, nid, fname,mname
+usertransaction
+agentstransaction
+
+____________________________________________
+login
+registration
+dashboard
+
+
+
+
+
+
+
+

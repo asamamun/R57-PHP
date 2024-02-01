@@ -1,0 +1,31 @@
+
+#Project Name:Vendor E-commerce Project
+
+# e-commerce site : FIST_Cart
+#Group : shark.
+
+
+Back-End:
+..................
+
+1.Admin(dashboard)
+2.product category
+3.products with Images
+4.Order management
+5.Payment: manage
+6.User management
+7.Feedback
+8.update (software and DB)
+9. Notification
+
+User Front-End:
+..........................
+1.registration
+2.login,log out, edit profile.
+3.View product
+4.Comment on product
+5.use add to cart/manage cart
+6.user can place order
+7.user can view previous orders / order history
+8. cancel order
+9. Notification

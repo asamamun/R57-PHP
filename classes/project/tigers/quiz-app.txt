@@ -1,0 +1,26 @@
+admin:
+manage category
+manage subcategory
+manage quiz
+manage quizset
+
+
+user:
+register
+login
+play quiz with time limit
+result and leaderboard
+user can contribute quiz also
+
+users: id,username,email,password,role,created_at
+categories: id,name,created_at
+subcategories: id,name,category_id,created_at
+quizes: id,cat_id,subcat_id,question,ans1,ans2,ans3,ans4,c_answer,status,user_id,created_at
+quizsets: id,cat_id,subcat_id,quiz_title,description,totalquiz,start_time,end_time,status,created_at
+quizset_quiz: id,quizsetid,quizid,created_at
+results: id,cat_id,subcat_id,quizset_id,user_id,marks,created
+
+
+
+
+
