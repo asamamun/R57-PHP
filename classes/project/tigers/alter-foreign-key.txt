@@ -1,0 +1,16 @@
+//one to many
+ALTER TABLE subcategories ADD FOREIGN KEY (category_id) REFERENCES categories(id);
+ALTER TABLE quizes ADD FOREIGN KEY (category_id) REFERENCES categories(id);
+ALTER TABLE quizes ADD FOREIGN KEY (subcategory_id) REFERENCES subcategories(id);
+ALTER TABLE quizes ADD FOREIGN KEY (user_id) REFERENCES users(id);
+
+---one to many
+ALTER TABLE quizsets ADD FOREIGN KEY (category_id) REFERENCES categories(id);
+ALTER TABLE quizsets ADD FOREIGN KEY (subcategory_id) REFERENCES subcategories(id);
+
+---many to many
+ALTER TABLE quizset_quiz ADD FOREIGN KEY (quizset_id) REFERENCES quizsets(id);
+ALTER TABLE quizset_quiz ADD FOREIGN KEY (quiz_id) REFERENCES quizes(id);
+
+--- one to one profiles and users
+ALTER TABLE profiles ADD FOREIGN KEY (user_id) REFERENCES users(id);
